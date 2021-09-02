@@ -1,5 +1,5 @@
 # 0.4.0-SNAPSHOT
-- add log file for production
+- add log file
 - add benchmark test for fizzbuzz service
 
 # 0.3.0

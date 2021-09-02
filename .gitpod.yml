@@ -4,3 +4,4 @@ vscode:
     - golang.go
     - mhutchie.git-graph
     - vivaxy.vscode-conventional-commits
+    - ms-azuretools.vscode-docker

@@ -24,3 +24,10 @@ make run
 ```shell script
 make benchmark
 ```
+
+5. **Docker build**
+
+```shell script
+make build-docker
+```
+

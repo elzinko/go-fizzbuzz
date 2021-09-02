@@ -9,3 +9,6 @@ run: testing
 
 benchmark: build
 	go test -v ./test -bench=Benchmark_FizzBuzz_100 -cpuprofile=log/cpu.out
+
+build-docker: build
+	docker build . -t fizzbuzz

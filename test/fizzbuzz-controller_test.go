@@ -69,7 +69,7 @@ func Test_FizzBuzz_Controller_KO_str2_empty(t *testing.T) {
 
 func FizzBuzz(t *testing.T, httpCode int, int1 string, int2 string, limit string, str1 string, str2 string) string {
 
-	web := api.SetupServer()
+	web := api.SetupServer("config.yml")
 	ts := httptest.NewServer(web)
 	defer ts.Close()
 

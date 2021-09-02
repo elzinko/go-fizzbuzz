@@ -15,5 +15,5 @@ import "github.com/elzinko/go-fizzbuzz/internal/api"
 // @BasePath /
 
 func main() {
-	api.Run()
+	api.Run("data/config.yml")
 }

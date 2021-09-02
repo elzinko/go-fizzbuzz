@@ -4,16 +4,22 @@ FizzBuzz "API" in Go
 1. **Build**
 
 ```shell script
-go build cmd/api/main.go
+make build
 ```
 
 3. **Test**
 
 ```shell script
-go test -v ./test
+make testing
 ```
 
-3. **Benchmark**
+3. **Run**
+
+```shell script
+make run
+```
+
+4. **Benchmark**
 
 ```shell script
 make benchmark

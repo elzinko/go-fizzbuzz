@@ -12,3 +12,6 @@ benchmark: build
 
 build-docker: build
 	docker build . -t fizzbuzz
+
+run-docker: build-docker
+	docker run -p 3333:3333 fizzbuzz

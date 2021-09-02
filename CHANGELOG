@@ -1,3 +1,6 @@
+# 0.5.1
+- fix : logrus import should be direct
+
 # 0.5.0
 - fix: log folder needed initialization
 - feat: add docker run

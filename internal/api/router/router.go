@@ -21,9 +21,8 @@ func Setup() *gin.Engine {
 
 func initializeLogging(logFile string) {
 	file, err := os.Create("log/api.log")
-	// var file, err = os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		log.Errorf("Could Not Open Log File : " + err.Error())
+		log.Errorf("Could not open log file : " + err.Error())
 	}
 
 	mw := io.MultiWriter(os.Stdout, file)

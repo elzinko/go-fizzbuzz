@@ -3,3 +3,4 @@ vscode:
   extensions:
     - golang.go
     - mhutchie.git-graph
+    - vivaxy.vscode-conventional-commits

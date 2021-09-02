@@ -12,7 +12,7 @@ import (
 func Setup() *gin.Engine {
 	app := gin.New()
 
-	// Logging to a file.
+	// Logging to a file
 	f, _ := os.Create("log/api.log")
 	gin.DisableConsoleColor()
 	gin.DefaultWriter = io.MultiWriter(f)
@@ -21,7 +21,7 @@ func Setup() *gin.Engine {
 	app.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
 		return fmt.Sprintf("%s - - [%s] \"%s %s %s %d %s \" \" %s\" \" %s\"\n",
 			param.ClientIP,
-			param.TimeStamp.Format("24/Jan/1980:5:00:00 -0100"),
+			param.TimeStamp,
 			param.Method,
 			param.Path,
 			param.Request.Proto,

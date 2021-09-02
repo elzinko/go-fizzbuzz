@@ -1,3 +1,7 @@
+# 0.3.0
+- fizzbuzz controller implementation
+- add Makefile
+
 # 0.2.0
 - fizzbuzz controller using TDD
 - updated README

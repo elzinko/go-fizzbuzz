@@ -12,3 +12,9 @@ go build cmd/api/main.go
 ```shell script
 go test -v ./test
 ```
+
+3. **Benchmark**
+
+```shell script
+make benchmark
+```

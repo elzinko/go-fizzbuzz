@@ -1,2 +1,2 @@
 # go-fizzbuzz
-Go FizzBuzz
+FizzBuzz "API" in Go

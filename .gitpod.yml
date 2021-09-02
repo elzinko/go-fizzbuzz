@@ -1,0 +1,5 @@
+
+vscode:
+  extensions:
+    - golang.go
+    - mhutchie.git-graph

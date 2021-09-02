@@ -1,7 +1,7 @@
 package api
 
 import (
-	"fmt"
+	log "github.com/sirupsen/logrus"
 
 	"github.com/elzinko/go-fizzbuzz/internal/api/pkg/config"
 	"github.com/elzinko/go-fizzbuzz/internal/api/router"
@@ -20,8 +20,7 @@ func SetupServer(configPath string) *gin.Engine {
 	setConfiguration(configPath)
 	conf := config.GetConfig()
 	web := router.Setup()
-	fmt.Println("Go FizzBuzz REST API Running on port " + conf.Server.Port)
-	fmt.Println("==================>")
+	log.Info("Go FizzBuzz REST API Running on port " + conf.Server.Port)
 	return web
 }
 

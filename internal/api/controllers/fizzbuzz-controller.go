@@ -4,11 +4,16 @@ import (
 	"net/http"
 	"strconv"
 
+	log "github.com/sirupsen/logrus"
+
 	"github.com/elzinko/go-fizzbuzz/internal/api/services"
 	"github.com/gin-gonic/gin"
 )
 
 func GetFizzFuzz(c *gin.Context) {
+
+	log.Info("controllers.GetFizzFuzz")
+
 	int1Str := c.Query("int1")
 	int2Str := c.Query("int2")
 	limitStr := c.Query("limit")

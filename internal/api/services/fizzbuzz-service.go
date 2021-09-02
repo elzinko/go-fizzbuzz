@@ -2,9 +2,14 @@ package services
 
 import (
 	"strconv"
+
+	log "github.com/sirupsen/logrus"
 )
 
 func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
+
+	log.Debug("call services.FizzBuzz(%s,%s, %s, %s, %s)", int1, int2, limit, str1, str2)
+
 	result := ""
 
 	for i := 1; i <= limit; i++ {
@@ -24,5 +29,7 @@ func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
 			result += ","
 		}
 	}
+
+	log.Debug("result = %s", result)
 	return result
 }

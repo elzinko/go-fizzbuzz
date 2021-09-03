@@ -8,7 +8,7 @@ import (
 
 func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
 
-	log.Debug("call services.FizzBuzz(%s,%s, %s, %s, %s)", int1, int2, limit, str1, str2)
+	log.Debugf("call services.FizzBuzz(%s,%s, %s, %s, %s)", int1, int2, limit, str1, str2)
 
 	result := ""
 

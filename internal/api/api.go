@@ -8,9 +8,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func setConfiguration(configPath string) {
-	config.Setup(configPath)
-	gin.SetMode(config.GetConfig().Server.Mode)
+func Run(configPath string) {
+	web := SetupServer(configPath)
+	conf := config.GetConfig()
+	log.Info("Go FizzBuzz REST API Running on port" + conf.Server.Port)
+	_ = web.Run(":" + conf.Server.Port)
 }
 
 func SetupServer(configPath string) *gin.Engine {
@@ -18,14 +20,21 @@ func SetupServer(configPath string) *gin.Engine {
 		configPath = "data/config.yml"
 	}
 	setConfiguration(configPath)
-	conf := config.GetConfig()
 	web := router.Setup()
-	log.Info("Go FizzBuzz REST API Running on port " + conf.Server.Port)
 	return web
 }
 
-func Run(configPath string) {
-	web := SetupServer(configPath)
-	conf := config.GetConfig()
-	_ = web.Run(":" + conf.Server.Port)
+func setConfiguration(configPath string) {
+	config.Setup(configPath)
+	setLogLevel(config.GetConfig().Log.Level)
+	gin.SetMode(config.GetConfig().Server.Mode)
+}
+
+func setLogLevel(level string) {
+	if level == "debug" {
+		log.SetLevel(log.DebugLevel)
+	} else {
+		log.SetLevel(log.InfoLevel)
+	}
+	log.Infof("Log level set to %s", level)
 }

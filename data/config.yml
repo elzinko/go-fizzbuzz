@@ -2,3 +2,6 @@ server:
   port: "3333"
   secret: "$Ss@Dw[8'%ub:Qr"
   mode: "release"
+  
+log:
+  level: "info"

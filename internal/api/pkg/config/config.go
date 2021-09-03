@@ -10,6 +10,7 @@ var Config *Configuration
 
 type Configuration struct {
 	Server ServerConfiguration
+	Log    LogConfiguration
 }
 
 type ServerConfiguration struct {
@@ -18,7 +19,11 @@ type ServerConfiguration struct {
 	Mode   string
 }
 
-func Setup(configPath string) {
+type LogConfiguration struct {
+	Level string
+}
+
+func Setup(configPath string) *Configuration {
 	var configuration *Configuration
 
 	viper.SetConfigFile(configPath)
@@ -34,6 +39,8 @@ func Setup(configPath string) {
 	}
 
 	Config = configuration
+
+	return Config
 }
 
 func GetConfig() *Configuration {

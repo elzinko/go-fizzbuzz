@@ -1,3 +1,8 @@
+# 0.6.0-SNAPSHOT
+- feat: add 
+- feat: add log level configuration
+- feat: add github ci actions for security, build and docker
+
 # 0.5.1
 - fix : logrus import should be direct
 

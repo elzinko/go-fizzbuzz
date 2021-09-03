@@ -7,7 +7,7 @@ COPY go.mod .
 COPY go.sum .
 RUN go mod download
 COPY . .
-RUN go build -o ./out/app ./cmd/api/main.go
+RUN go build -o ./out/app ./cmd/fizzbuzz/main.go
 
 FROM alpine:3.14.2
 RUN apk add ca-certificates

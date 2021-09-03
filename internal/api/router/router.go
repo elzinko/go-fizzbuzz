@@ -20,7 +20,7 @@ func Setup() *gin.Engine {
 }
 
 func initializeLogging(logFile string) {
-	file, err := os.Create("log/api.log")
+	file, err := os.Create(os.Getenv("FIZZBUZZ_BASE") + "/log/api.log")
 	if err != nil {
 		log.Errorf("Could not open log file : " + err.Error())
 	}

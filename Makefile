@@ -1,5 +1,5 @@
 build:
-	go build -o bin/fizzbuzz cmd/api/main.go
+	go build -o bin/fizzbuzz cmd/fizzbuzz/main.go
 
 testing: build
 	go test -v ./test

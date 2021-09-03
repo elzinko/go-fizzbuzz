@@ -1,9 +1,13 @@
 package main
 
-import "github.com/elzinko/go-fizzbuzz/internal/api"
+import (
+	"os"
+
+	"github.com/elzinko/go-fizzbuzz/internal/api"
+)
 
 // @Golang FizzBuzz REST API
-// @version 0.2
+// @version 0.5.1
 // @description FizzBuzz REST API in Golang with Gin Framework
 
 // @contact.name Thomas Couderc
@@ -15,5 +19,5 @@ import "github.com/elzinko/go-fizzbuzz/internal/api"
 // @BasePath /
 
 func main() {
-	api.Run("data/config.yml")
+	api.Run(os.Getenv("FIZZBUZZ_BASE") + "/data/config.yml")
 }

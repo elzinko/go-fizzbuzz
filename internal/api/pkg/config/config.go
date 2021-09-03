@@ -20,13 +20,14 @@ type ServerConfiguration struct {
 }
 
 type LogConfiguration struct {
-	Level string
+	Level           string
+	AppendToLogFile bool
 }
 
-func Setup(configPath string) *Configuration {
+func Setup(basePath string, configPath string) *Configuration {
 	var configuration *Configuration
 
-	viper.SetConfigFile(configPath)
+	viper.SetConfigFile(basePath + configPath)
 	viper.SetConfigType("yaml")
 
 	if err := viper.ReadInConfig(); err != nil {

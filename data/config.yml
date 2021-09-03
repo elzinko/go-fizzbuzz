@@ -5,3 +5,4 @@ server:
   
 log:
   level: "info"
+  appendToLogFile: true

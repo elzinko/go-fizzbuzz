@@ -8,10 +8,11 @@
             "name": "Launch Package",
             "type": "go",
             "request": "launch",
-            "mode": "auto",
+            "mode": "debug",
             "program": "${workspaceFolder}/cmd/fizzbuzz/main.go",
             "env": {
-                // "FIZZBUZZ_BASE": "/workspace/go-fizzbuzz"
+                "FIZZBUZZ_BASE":"/workspace/go-fizzbuzz/",
+                "CONFIG_PATH":"data/config.yml"
             }
         }
     ]

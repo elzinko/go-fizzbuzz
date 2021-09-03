@@ -21,7 +21,7 @@ func Check(t *testing.T, want string, got string) {
 
 func FizzBuzz(t *testing.T, httpCode int, int1 string, int2 string, limit string, str1 string, str2 string) string {
 
-	web := api.SetupServer("config.yml")
+	web := api.SetupServer("", "config.yml")
 	ts := httptest.NewServer(web)
 	defer ts.Close()
 

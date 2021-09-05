@@ -8,7 +8,7 @@ import (
 
 func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
 
-	log.Debugf("call services.FizzBuzz(%s,%s, %s, %s, %s)", int1, int2, limit, str1, str2)
+	log.Debugf("call services.FizzBuzz(%s,%s, %s, %s, %s)", strconv.Itoa(int1), strconv.Itoa(int2), strconv.Itoa(limit), str1, str2)
 
 	result := ""
 
@@ -30,7 +30,7 @@ func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
 		}
 	}
 
-	log.Debug("result = %s", result)
+	log.Debugf("result = %s", result)
 
 	return result
 }

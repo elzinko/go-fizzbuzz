@@ -29,3 +29,5 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      env:
+        GIN_MODE: release

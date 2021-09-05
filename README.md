@@ -1,33 +1,17 @@
 # go-fizzbuzz
-FizzBuzz "API" in Go
 
-1. **Build**
+FizzBuzz (kind of) REST API in Go.
 
-```shell script
-make build
-```
-
-3. **Test**
-
-```shell script
-make testing
-```
-
-3. **Run**
+## Build & Run :construction_worker:
 
 ```shell script
 make run
 ```
+Check [Makefile](./Makefile) for further commands.
 
-4. **Benchmark**
+## Documentation :blue_book:
 
-```shell script
-make benchmark
-```
+To access Swagger documentation and make some tries, please run project locally and open : http://127.0.0.1/api/0.6.0/docs/index.html
 
-5. **Docker build**
-
-```shell script
-make build-docker
-```
-
+## Deployment :rocket:
+For production deployment, please set CONFIG_PATH environment variable which sets the properties file location.

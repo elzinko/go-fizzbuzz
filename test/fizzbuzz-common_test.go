@@ -1,4 +1,4 @@
-package common_test
+package test
 
 import (
 	"fmt"
@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	"github.com/elzinko/go-fizzbuzz/internal/api"
+	"github.com/elzinko/go-fizzbuzz/internal/api/controllers"
 	"github.com/google/go-cmp/cmp"
 )
 
@@ -32,7 +33,8 @@ func FizzBuzz(t *testing.T, httpCode int, int1 string, int2 string, limit string
 	params.Add("str1", str1)
 	params.Add("str2", str2)
 
-	resp, err := http.Get(fmt.Sprintf("%s/api/fizzbuzz?%s", ts.URL, params.Encode()))
+	url := fmt.Sprintf("%s%s%s?%s", ts.URL, api.API_PATH, controllers.FIZZBUZZ_PATH, params.Encode())
+	resp, err := http.Get(url)
 
 	if err != nil {
 		fmt.Printf("%s", err)

@@ -1,16 +1,22 @@
-build:
+swagger:
+	swag init -d cmd/fizzbuzz/ --parseDependency
+
+build: swagger
 	go build -o bin/fizzbuzz cmd/fizzbuzz/main.go
 
 testing: build
 	go test -v ./test
 
-run: testing
+swagger: testing
+	swag init -d cmd/fizzbuzz/ --parseDependency
+
+run: swagger
 	FIZZBUZZ_BASE=/workspace/go-fizzbuzz/ CONFIG_PATH=data/config.yml go run cmd/fizzbuzz/main.go
 
 benchmark: build
 	go test -v ./test -bench=Benchmark_FizzBuzz_100 -cpuprofile=log/cpu.out
 
-build-docker: build
+build-docker: swagger
 	docker build . -t fizzbuzz
 
 run-docker: build-docker

@@ -8,17 +8,11 @@ import (
 	"github.com/elzinko/go-fizzbuzz/internal/api"
 )
 
-// @Golang FizzBuzz REST API
-// @version 0.5.1
-// @description FizzBuzz REST API in Golang with Gin Framework
-
 // @contact.name Thomas Couderc
 // @contact.email thomas.couderc@gmail.com
-
 // @license.name MIT
 // @license.url https://github.com/elzinko/go-fizzbuzz/blob/master/LICENSE
-
-// @BasePath /
+// @termsOfService http://swagger.io/terms/
 
 func main() {
 	basePath, ok := os.LookupEnv("FIZZBUZZ_BASE")

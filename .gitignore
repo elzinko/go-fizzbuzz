@@ -14,5 +14,10 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 bin/**
+
+# logs
 test/**.log
 log/**.log
+
+# swagger
+docs/**

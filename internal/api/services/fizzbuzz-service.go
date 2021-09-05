@@ -31,5 +31,6 @@ func FizzBuzz(int1 int, int2 int, limit int, str1 string, str2 string) string {
 	}
 
 	log.Debug("result = %s", result)
+
 	return result
 }

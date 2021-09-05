@@ -1,55 +1,17 @@
 # go-fizzbuzz
-FizzBuzz "API" in Go
 
-## CI
+FizzBuzz (kind of) REST API in Go.
 
-### Build
-
-```shell script
-make build
-```
-
-### Test
-
-```shell script
-make testing
-```
-
-### Swagger
-
-```shell script
-make swagger
-```
-
-### Run
+## Build & Run :construction_worker:
 
 ```shell script
 make run
 ```
+Check [Makefile](./Makefile) for further commands.
 
-### Benchmark**
+## Documentation :blue_book:
 
-```shell script
-make benchmark
-```
+To access Swagger documentation and make some tries, please run project locally and open : http://127.0.0.1/api/0.6.0/docs/index.html
 
-### Docker build**
-
-```shell script
-make build-docker
-```
-
-### Docker run**
-
-```shell script
-make run-docker
-```
-
-## Documentation
-
-
-
-You can access to http://127.0.0.1/....
-
-## Deployment
-For production deployment, you need to set CONFIG_PATH environment variable which sets the properties file location.
+## Deployment :rocket:
+For production deployment, please set CONFIG_PATH environment variable which sets the properties file location.

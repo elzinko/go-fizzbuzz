@@ -24,7 +24,7 @@ type LogConfiguration struct {
 	AppendToLogFile bool
 }
 
-func Setup(basePath string, configPath string) *Configuration {
+func Load(basePath string, configPath string) *Configuration {
 	var configuration *Configuration
 
 	viper.SetConfigFile(basePath + configPath)

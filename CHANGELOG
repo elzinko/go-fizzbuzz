@@ -1,4 +1,4 @@
-# 0.6.0-SNAPSHOT
+# 0.6.0
 - feat: add swagger documentation
 - feat: add log level configuration
 - feat: add github ci actions for security, build and docker

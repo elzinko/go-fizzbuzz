@@ -6,10 +6,15 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
+	"github.com/elzinko/go-fizzbuzz/docs"
 	"github.com/elzinko/go-fizzbuzz/internal/api/pkg/config"
 	"github.com/elzinko/go-fizzbuzz/internal/api/router"
 	"github.com/gin-gonic/gin"
 )
+
+const api_base = "/api"
+const api_version = "0.6.0"
+const API_PATH = api_base + "/" + api_version
 
 func Run(basePath string, configPath string) {
 	web := SetupServer(basePath, configPath)
@@ -18,24 +23,22 @@ func Run(basePath string, configPath string) {
 }
 
 func SetupServer(basePath string, configPath string) *gin.Engine {
-	if configPath == "" {
-		configPath = "data/config.yml"
-	}
 	setConfiguration(basePath, configPath)
 	initializeLogging(basePath+"log/fuzzbuzz.log", config.GetConfig().Log.Level, config.GetConfig().Log.AppendToLogFile)
-	web := router.Setup(basePath)
-	return web
+	setSwaggerInfos()
+
+	return router.Setup(basePath, API_PATH)
 }
 
 func setConfiguration(basePath string, configPath string) {
-	config.Setup(basePath, configPath)
+	config.Load(basePath, configPath)
 	gin.SetMode(config.GetConfig().Server.Mode)
 }
 
 func initializeLogging(logFile string, logLevel string, appendToLogFile bool) {
 	mw := io.MultiWriter(os.Stdout)
 
-	// If specified, log to a file
+	// If specified in config.yml, log to a file
 	if appendToLogFile && logFile != "" {
 		file, err := os.Create(logFile)
 		if err != nil {
@@ -61,4 +64,12 @@ func setLogLevel(level string) {
 		log.SetLevel(log.InfoLevel)
 	}
 	log.Infof("Log level set to %s", level)
+}
+
+func setSwaggerInfos() {
+	docs.SwaggerInfo.Title = "FizzBuzz generator using REST"
+	docs.SwaggerInfo.Description = "FizzFuzz REST API in Golang with Gin Framework."
+	docs.SwaggerInfo.Version = api_version
+	docs.SwaggerInfo.BasePath = API_PATH
+	docs.SwaggerInfo.Schemes = []string{"https"}
 }

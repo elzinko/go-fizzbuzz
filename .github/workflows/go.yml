@@ -13,6 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Get Swag command
+      run: go get -u github.com/swaggo/swag/cmd/swag
+
+    - name: Swagger
+      run: swag init -d cmd/fizzbuzz/ --parseDependency
+
     - name: Set up Go
       uses: actions/setup-go@v2
       with:

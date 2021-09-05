@@ -10,6 +10,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// FizzFuzz godoc
+// @Summary Get FizzBuzz
+// @Description Returns a fizzbuzz strings with numbers from 1 to limit, where all multiples of int1 are replaced by str1, all multiples of int2 are replaced by str2, all multiples of int1 and int2 are replaced by str1str2.
+// @Produce json
+// @Param int1 path integer true "modulo for str1 parameter"
+// @Param int2 path integer true "modulo for str2 parameter"
+// @Param limit path integer true "Loop limit generation"
+// @Param str1 path integer true "Fizz string value"
+// @Param str2 path integer true "Buzz string value"
+// @Success 200 {object} string "ok"
+// @Router /fizzbuzz [get]
 func GetFizzFuzz(c *gin.Context) {
 
 	log.Info("controllers.GetFizzFuzz")

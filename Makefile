@@ -4,6 +4,9 @@ build:
 testing: build
 	go test -v ./test
 
+swagger: build
+	swag init -d cmd/fizzbuzz/ --parseDependency
+
 run: testing
 	FIZZBUZZ_BASE=/workspace/go-fizzbuzz/ CONFIG_PATH=data/config.yml go run cmd/fizzbuzz/main.go
 

@@ -1,33 +1,55 @@
 # go-fizzbuzz
 FizzBuzz "API" in Go
 
-1. **Build**
+## CI
+
+### Build
 
 ```shell script
 make build
 ```
 
-3. **Test**
+### Test
 
 ```shell script
 make testing
 ```
 
-3. **Run**
+### Swagger
+
+```shell script
+make swagger
+```
+
+### Run
 
 ```shell script
 make run
 ```
 
-4. **Benchmark**
+### Benchmark**
 
 ```shell script
 make benchmark
 ```
 
-5. **Docker build**
+### Docker build**
 
 ```shell script
 make build-docker
 ```
 
+### Docker run**
+
+```shell script
+make run-docker
+```
+
+## Documentation
+
+
+
+You can access to http://127.0.0.1/....
+
+## Deployment
+For production deployment, you need to set CONFIG_PATH environment variable which sets the properties file location.

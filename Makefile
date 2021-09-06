@@ -1,4 +1,7 @@
-build:
+swagger:
+	swag init -d cmd/fizzbuzz/ --parseDependency
+
+build: swagger
 	go build -o bin/fizzbuzz cmd/fizzbuzz/main.go
 
 testing: build

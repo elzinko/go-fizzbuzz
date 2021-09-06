@@ -18,7 +18,7 @@ func Setup(basePath string, apiVersion string) *gin.Engine {
 	router.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
 		return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
 			param.ClientIP,
-			param.TimeStamp.Format(time.RFC1123Z),
+			param.TimeStamp.Format(time.RFC3339Nano),
 			param.Method,
 			param.Path,
 			param.Request.Proto,

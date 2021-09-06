@@ -8,12 +8,6 @@ import (
 	"github.com/elzinko/go-fizzbuzz/internal/api"
 )
 
-// @contact.name Thomas Couderc
-// @contact.email thomas.couderc@gmail.com
-// @license.name MIT
-// @license.url https://github.com/elzinko/go-fizzbuzz/blob/master/LICENSE
-// @termsOfService http://swagger.io/terms/
-
 func main() {
 	basePath, ok := os.LookupEnv("FIZZBUZZ_BASE")
 	if !ok {

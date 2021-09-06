@@ -1,5 +1,5 @@
 get-swag: 
-	go get -u github.com/swaggo/swag/cmd/swag
+	go install github.com/swaggo/swag/cmd/swag@v1.7.1
 
 swagger: get-swag
 	swag init -d cmd/fizzbuzz/ --parseDependency
@@ -7,14 +7,15 @@ swagger: get-swag
 build: swagger
 	go build -o bin/fizzbuzz cmd/fizzbuzz/main.go
 
-testing: build
+testing:
 	go test -v ./test/...
 
 benchmark: build
 	go test -v ./test/... -bench=Benchmark_FizzBuzz_100 -cpuprofile=log/cpu.out
 
-run: testing
-	FIZZBUZZ_BASE=/workspace/go-fizzbuzz/ CONFIG_PATH=data/config.yml go run cmd/fizzbuzz/main.go
+run:
+
+	FIZZBUZZ_BASE=$(CURDIR)/ CONFIG_PATH=data/config.yml go run cmd/fizzbuzz/main.go
 
 build-docker: build
 	docker build . -t fizzbuzz

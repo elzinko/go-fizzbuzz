@@ -22,8 +22,8 @@ jobs:
       with:
         go-version: 1.17
 
-    - name: Get Swag
-      run: go get -u github.com/swaggo/swag/cmd/swag
+    - name: Install Swag
+      run: go install github.com/swaggo/swag/cmd/swag@v1.7.1
 
     - name: Swagger
       run: swag init -d cmd/fizzbuzz/ --parseDependency

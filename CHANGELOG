@@ -1,3 +1,6 @@
+# 0.6.2
+- fix: make it work from start
+
 # 0.6.1
 - fix: ci for swagger and docker
 

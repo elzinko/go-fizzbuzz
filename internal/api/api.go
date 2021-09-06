@@ -19,7 +19,7 @@ import (
 // @termsOfService http://swagger.io/terms/
 
 const api_base = "/api"
-const api_version = "0.6.1"
+const api_version = "0.6.2"
 const API_PATH = api_base + "/" + api_version
 
 func Run(basePath string, configPath string) {
@@ -77,5 +77,5 @@ func setSwaggerInfos() {
 	docs.SwaggerInfo.Description = "FizzFuzz REST API in Golang with Gin Framework."
 	docs.SwaggerInfo.Version = api_version
 	docs.SwaggerInfo.BasePath = API_PATH
-	docs.SwaggerInfo.Schemes = []string{"https"}
+	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 }

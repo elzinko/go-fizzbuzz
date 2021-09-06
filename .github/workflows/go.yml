@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      ci:
+        description: "CI pipeline"
+        required: false
+        default: "go.yml"
 
 jobs:
 
@@ -15,6 +21,11 @@ jobs:
         
     runs-on: ubuntu-latest
     steps:
+    - name: Abort if CI not successful
+      if: steps.check.outputs.status != 'success'
+      run: |
+        echo ${{ steps.check.outputs.status }}
+        exit 1
     - uses: actions/checkout@v2
     
     - name: Set up Go

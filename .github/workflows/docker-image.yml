@@ -7,19 +7,20 @@ on:
     branches: [ main ]
   workflow_run:
     workflows: ["Go"]
-    types: [completed]
+    types: 
+      - completed
+      - requested
 
 jobs:
-
   on-success:
-
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-    
     - uses: actions/checkout@v2
-
-    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag fizzbuzz:$(date +%s)
-      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+    - run: echo "do not build docker due to failing build"

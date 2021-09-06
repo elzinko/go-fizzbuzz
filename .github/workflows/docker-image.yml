@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      ci:
+        description: "CI pipeline"
+        required: false
+        default: "go.yml"
 
 jobs:
 
@@ -13,13 +19,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Wait for tests to succeed
-      uses: lewagon/wait-on-check-action@v1.0.0
-      with:
-        ref: master
-        check-name: Go
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        wait-interval: 40
+    - name: Abort if CI not successful
+      if: steps.check.outputs.status != 'success'
+      run: |
+        echo ${{ steps.check.outputs.status }}
+        exit 1
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag fizzbuzz:$(date +%s)

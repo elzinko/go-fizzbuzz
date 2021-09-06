@@ -33,3 +33,6 @@ jobs:
 
     - name: Test
       run: go test ./...
+    
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag fizzbuzz:$(date +%s)

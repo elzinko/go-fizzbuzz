@@ -13,7 +13,7 @@ import (
 )
 
 const api_base = "/api"
-const api_version = "0.6.0"
+const api_version = "0.6.1"
 const API_PATH = api_base + "/" + api_version
 
 func Run(basePath string, configPath string) {

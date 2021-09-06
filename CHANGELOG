@@ -1,3 +1,6 @@
+# 0.6.1
+- fix: ci for swagger and docker
+
 # 0.6.0
 - feat: add swagger documentation
 - feat: add log level configuration
